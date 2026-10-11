@@ -56,6 +56,9 @@ export function LoginForm({
       const { error } = await supabase.auth.signInWithOAuth({
         provider: "azure",
         options: {
+          queryParams: {
+            prompt: 'select_account',
+          },
           scopes: "email",
           redirectTo: `${window.location.origin}/auth/callback?next=/protected`,
           /* next=/protected tells the app where to send the user after Azure sign-in succeeds. 
