@@ -24,7 +24,7 @@ export default function ProtectedPage() {
         
         {/*Testing- navigation to new page */}
         <Button asChild>
-          <a href="/protected/form">dead link</a>
+          <a href="/protected/form">form link</a>
         </Button>
       </div>
     </div>
