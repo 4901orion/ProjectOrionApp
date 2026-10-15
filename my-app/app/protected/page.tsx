@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { InfoIcon } from "lucide-react";
 import { Suspense } from "react";
+import { Button } from "@/components/ui/button";
 
 async function UserDetails() {
   const supabase = await createClient();
@@ -12,10 +13,21 @@ async function UserDetails() {
     redirect("/auth/login");
   }
 
-  return JSON.stringify(data.claims, null, 2);
+  return (
+    <>
+      <h1 className="font-bold text-2xl mb-4">
+        Orion Dashboard. Logged In= {data.claims.email}
+      </h1>
+
+      <h2 className="font-bold text-2xl mb-4">Your user details</h2>
+      <pre className="text-xs font-mono p-3 rounded border max-h-32 overflow-auto">
+        {JSON.stringify(data.claims, null, 2)}
+      </pre>
+    </>
+  );
 }
 
-export default function ProtectedPage() {
+export default async function ProtectedPage() {
   return (
     <div className="flex-1 w-full flex flex-col gap-12">
       <div className="w-full">
@@ -26,12 +38,16 @@ export default function ProtectedPage() {
         </div>
       </div>
       <div className="flex flex-col gap-2 items-start">
-        <h2 className="font-bold text-2xl mb-4">Your user details</h2>
-        <pre className="text-xs font-mono p-3 rounded border max-h-32 overflow-auto">
-          <Suspense>
-            <UserDetails />
-          </Suspense>
-        </pre>
+        <Suspense fallback={<p>Loading user details...</p>}>
+          <UserDetails />
+        </Suspense>
+      </div>
+           <div>
+        
+        {/*Testing- navigation to new page */}
+        <Button asChild>
+          <a href="/protected/page2">next (testing navigation button)</a>
+        </Button>
       </div>
     </div>
   );
