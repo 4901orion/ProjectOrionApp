@@ -66,3 +66,18 @@
     @apply bg-background text-foreground;
   }
 }
+
+.survey-form .sd-body.sd-body--static {
+  max-width: none;
+}
+
+.survey-form,
+.survey-form .sd-root-modern,
+.survey-form .sd-body,
+.survey-form .sd-body__page,
+.survey-form .sd-page,
+.survey-form .sd-question,
+.survey-form .sd-question__content {
+  width: 100%;
+  max-width: none;
+}

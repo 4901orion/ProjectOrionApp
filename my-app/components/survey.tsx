@@ -14,10 +14,21 @@ const surveyJson = {
     name: "LastName",
     title: "Enter your last name:",
     type: "text"
+  },
+    {
+    name: "New Application",
+    title: "Starting a new application:",
+    type: "radiogroup",
+    choices: ["Yes","No"]       
   }]
 };
 
 export default function SurveyComponent() {
   const survey = useMemo(() => new Model(surveyJson), [surveyJson]);
 
-return <Survey model={survey} />;}
+    return (
+    <div className="survey-form mx-auto w-full max-w-4xl">
+        <Survey model={survey} />
+    </div>
+);
+}

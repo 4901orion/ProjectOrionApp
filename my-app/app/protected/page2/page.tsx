@@ -20,11 +20,15 @@ export default function ProtectedPage() {
   return (
     <div className="flex-1 w-full flex flex-col gap-12">
       
-      <div>
+      <div className="flex justify-center gap-2 items-start">
         
         {/*Testing- navigation to new page */}
-        <Button asChild>
-          <a href="/protected/form">form link</a>
+        <Button asChild className="gap-19">
+          <a href="/protected/form">Submission Form</a>
+        </Button>
+
+        <Button asChild className="mx-4">
+          <a href="/">Unauthenticated Page</a>
         </Button>
       </div>
     </div>

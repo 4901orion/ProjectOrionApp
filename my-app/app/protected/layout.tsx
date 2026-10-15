@@ -6,6 +6,7 @@ import { hasEnvVars } from "@/lib/utils";
 import Link from "next/link";
 import { Suspense } from "react";
 
+
 export default function ProtectedLayout({
   children,
 }: {
@@ -31,7 +32,7 @@ export default function ProtectedLayout({
             )}
           </div>
         </nav>
-        <div className="flex-1 flex flex-col gap-20 max-w-5xl p-5">
+        <div className="flex-1 flex w-full flex-col gap-20 max-w-5xl p-5">
           {children}
         </div>
 
