@@ -30,6 +30,10 @@ export default function ProtectedPage() {
         <Button asChild className="mx-4">
           <a href="/protected/page3Nav">nav test Page</a>
         </Button>
+
+        <Button asChild className="mx-4">
+          <a href="/protected/surveyVCreator">Survey Creator</a>
+        </Button>
       </div>
     </div>
   );

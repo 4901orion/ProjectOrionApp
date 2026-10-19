@@ -3,6 +3,13 @@ import { Geist } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
 
+// app/layout.tsx or pages/_app.tsx
+// to fonts load them once for all SurveyJS components
+import '@fontsource/open-sans/400.css';
+import '@fontsource/open-sans/600.css';
+import '@fontsource/open-sans/700.css';
+
+
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
   : "http://localhost:3000";
