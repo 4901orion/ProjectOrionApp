@@ -1,0 +1,10 @@
+.sidenav{
+    width: 200px;
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: #919090;
+    border: 1px solid #000000 ;
+    border-radius: 5px;
+    flex:auto;
+}

@@ -20,7 +20,14 @@ const surveyJson = {
     title: "Starting a new application:",
     type: "radiogroup",
     choices: ["Yes","No"]       
-  }]
+  },
+  {
+    name: "Application Type",
+    title: "Select the type of application:",
+    type: "dropdown",
+    choices: ["Type A", "Type B", "Type C"] 
+  }
+]
 };
 
 export default function SurveyComponent() {

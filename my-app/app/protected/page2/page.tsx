@@ -28,7 +28,7 @@ export default function ProtectedPage() {
         </Button>
 
         <Button asChild className="mx-4">
-          <a href="/">Unauthenticated Page</a>
+          <a href="/protected/page3Nav">nav test Page</a>
         </Button>
       </div>
     </div>
