@@ -36,7 +36,9 @@ export default function ProtectedPage() {
         </Button>
 
         <Button asChild className="mx-4">
-          <a href="/admin">admin</a>
+          <a href="/admin" target="_blank">
+            admin
+          </a>
         </Button>
       </div>
     </div>
