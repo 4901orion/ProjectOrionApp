@@ -32,7 +32,11 @@ export default function ProtectedPage() {
         </Button>
 
         <Button asChild className="mx-4">
-          <a href="/protected/surveyVCreator">Survey Creator</a>
+          <a href="/apply/[formId]">nextlyForm</a>
+        </Button>
+
+        <Button asChild className="mx-4">
+          <a href="/admin">admin</a>
         </Button>
       </div>
     </div>

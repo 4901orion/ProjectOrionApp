@@ -1,0 +1,93 @@
+{
+  "$schema": "https://nextlyhq.com/schemas/ui-schema.v1.json",
+  "version": 1,
+  "collections": [
+    {
+      "slug": "post",
+      "labels": {
+        "singular": "post",
+        "plural": "posts"
+      },
+      "status": true,
+      "fields": [
+        {
+          "name": "bngh",
+          "type": "text",
+          "required": false,
+          "label": "bngh",
+          "unique": false,
+          "index": false,
+          "admin": {
+            "condition": {
+              "field": "box",
+              "operator": "isTrue"
+            }
+          }
+        },
+        {
+          "name": "box",
+          "type": "checkbox",
+          "required": false,
+          "label": "box",
+          "unique": false,
+          "index": false
+        }
+      ],
+      "localized": false,
+      "versions": false,
+      "revalidate": true,
+      "webhooks": true
+    }
+  ],
+  "singles": [
+    {
+      "slug": "form1",
+      "labels": {
+        "singular": "Form1",
+        "plural": "Form1"
+      },
+      "status": true,
+      "fields": [
+        {
+          "name": "nb_k_b",
+          "type": "text",
+          "required": false,
+          "label": "nb,k.b",
+          "unique": false,
+          "index": false,
+          "admin": {
+            "condition": {
+              "field": "box",
+              "operator": "isTrue"
+            }
+          }
+        },
+        {
+          "name": "box",
+          "type": "checkbox",
+          "options": [
+            {
+              "id": "opt_1792960768969_vm73w6u",
+              "label": "yes",
+              "value": "yes"
+            },
+            {
+              "id": "opt_1792960773381_snaxy84",
+              "label": "no",
+              "value": "no"
+            }
+          ],
+          "required": true,
+          "label": "box",
+          "unique": false,
+          "index": false
+        }
+      ],
+      "localized": false,
+      "versions": false,
+      "revalidate": true,
+      "webhooks": true
+    }
+  ],
+  "components": []
+}

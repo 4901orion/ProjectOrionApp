@@ -1,0 +1,1 @@
+export { GET, HEAD } from "nextly/api/health";

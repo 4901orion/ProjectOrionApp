@@ -13,7 +13,7 @@ export default function ProtectedLayout({
   children: React.ReactNode;
 }) {
   return (
-    <main className="min-h-screen flex flex-col items-center">
+    <main className="h-dvh min-h-screen flex flex-col items-center overflow-y-auto">
       <div className="flex-1 w-full flex flex-col items-center">
         <nav className="w-full flex justify-between border-b border-b-foreground/10">
           <div className="w-full max-w-1xl flex justify-between items-center p-3 px-10 text-sm">
@@ -32,7 +32,7 @@ export default function ProtectedLayout({
             </div>
           </div>
         </nav>
-        <div className="flex-1 flex w-full flex-col gap-2 max-w">
+        <div className="min-h-0 flex-1 flex w-full flex-col gap-2">
           {children}
         </div>
 
