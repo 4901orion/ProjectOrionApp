@@ -58,6 +58,37 @@ export async function updateSession(request: NextRequest) {
     url.pathname = "/auth/login";
     return NextResponse.redirect(url);
   }
+  
+  // 2FA code start 
+  //---------------------
+  // 2FA is mandatory. Reads the session cookie only, no network call.
+  // - aal1 -> aal2: has an authenticator app but hasn't entered a code yet.
+  // - next level aal1: no authenticator app set up yet.
+  if (user && !request.nextUrl.pathname.startsWith("/auth")) {
+    const { data: aal } =
+      await supabase.auth.mfa.getAuthenticatorAssuranceLevel();
+    let mfaPath: string | null = null;
+    if (aal?.nextLevel === "aal2" && aal.currentLevel !== "aal2") {
+      mfaPath = "/auth/mfa";
+    } else if (aal?.nextLevel === "aal1") {
+      mfaPath = "/auth/mfa/setup";
+    }
+    if (mfaPath) {
+      const url = request.nextUrl.clone();
+      url.pathname = mfaPath;
+      url.search = `?next=${encodeURIComponent(
+        request.nextUrl.pathname + request.nextUrl.search,
+      )}`;
+      const redirect = NextResponse.redirect(url);
+      // Keep any refreshed session cookies (see the note below).
+      supabaseResponse.cookies
+        .getAll()
+        .forEach((cookie) => redirect.cookies.set(cookie));
+      return redirect;
+    }
+  }
+  // 2FA code end
+  //-----------------------
 
   // IMPORTANT: You *must* return the supabaseResponse object as it is.
   // If you're creating a new response object with NextResponse.next() make sure to:

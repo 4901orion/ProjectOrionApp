@@ -1,20 +1,10 @@
+
 import { redirect } from "next/navigation";
 
 import { createClient } from "@/lib/supabase/server";
 import { Suspense } from "react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-
-async function UserDetails() {
-  const supabase = await createClient();
-  const { data, error } = await supabase.auth.getClaims();
-
-  if (error || !data?.claims) {
-    redirect("/auth/login");
-  }
-
-  return JSON.stringify(data.claims, null, 2);
-}
 
 export default function ProtectedPage() {
   return (
@@ -32,7 +22,7 @@ export default function ProtectedPage() {
         </Button>
 
         <Button asChild className="mx-4">
-          <a href="/apply/[formId]">nextlyForm</a>
+          <a href="/protected/pageAuth">page auth</a>
         </Button>
 
         <Button asChild className="mx-4">
@@ -40,6 +30,8 @@ export default function ProtectedPage() {
             admin
           </a>
         </Button>
+
+
       </div>
     </div>
   );
