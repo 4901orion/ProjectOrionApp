@@ -13,7 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export function UpdatePasswordForm({
   className,
@@ -24,6 +24,20 @@ export function UpdatePasswordForm({
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
 
+  // With 2FA on, Supabase only allows a password change from an aal2 session.
+  // The reset email only gives aal1, so ask for the 6-digit code first.
+  useEffect(() => 
+    {
+    (async () => {
+      const supabase = createClient();
+      const { data } = await supabase.auth.mfa.getAuthenticatorAssuranceLevel();
+      if (data?.nextLevel === "aal2" && data.currentLevel !== "aal2") {
+        router.replace("/auth/mfa?next=/auth/update-password");
+      }
+    })();
+  }, [router]);
+
+  
   const handleForgotPassword = async (e: React.FormEvent) => {
     e.preventDefault();
     const supabase = createClient();
