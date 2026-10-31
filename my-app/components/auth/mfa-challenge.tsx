@@ -58,8 +58,7 @@ export function MfaChallengeForm({
         code,
       });
       if (error) throw error;
-      router.push(next);
-      router.refresh();
+        window.location.assign(next);
     } catch (error: unknown) {
       setError(error instanceof Error ? error.message : "An error occurred");
       setIsLoading(false);
