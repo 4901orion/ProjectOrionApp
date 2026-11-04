@@ -26,6 +26,7 @@ export function MfaChallengeForm({
   const [code, setCode] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [resetSent, setResetSent] = useState(false);
   const router = useRouter();
 
   useEffect(() => {
@@ -71,6 +72,40 @@ export function MfaChallengeForm({
     router.push("/auth/login");
   };
 
+  // Lost authenticator: email a sign-in link. Clicking it proves they own the
+  // email, and app/auth/mfa/reset/route.ts then removes the old factor.
+  const handleLostDevice = async () => {
+    const supabase = createClient();
+    setError(null);
+
+    const { data } = await supabase.auth.getUser();
+    const email = data.user?.email;
+    if (!email) {
+      setError("This account has no email address.");
+      return;
+    }
+
+    /*
+      The sign-in link will redirect to /auth/callback, which will sign the user in
+      and then redirect to /auth/mfa/reset, which will remove the old factor.
+      The user will then be redirected to /auth/mfa/setup to set up a new factor.
+    */
+    setIsLoading(true);
+    setResetSent(false);
+    const { error } = await supabase.auth.signInWithOtp({
+      email,
+      options: {
+        shouldCreateUser: false,
+        emailRedirectTo: `${window.location.origin}/auth/callback?next=/auth/mfa/reset`,
+      },
+    });
+    if (error) {
+      setError(error.message);
+      return;
+    }
+    setResetSent(true);
+  };
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
@@ -112,6 +147,21 @@ export function MfaChallengeForm({
               >
                 Sign out
               </Button>
+
+              {resetSent ? (
+                <p className="text-sm text-muted-foreground">
+                  Check your email for a sign-in link to reset your authenticator. <b>Open it in this browser.</b>
+                </p>
+              ) : (
+                <Button
+                  type="button"
+                  variant="outline"
+                  className="w-full underline underline-offset-4"
+                  onClick={handleLostDevice}
+                >
+                  Lost your authenticator?
+                </Button>
+              )}
             </div>
           </form>
         </CardContent>

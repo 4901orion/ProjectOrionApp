@@ -1,3 +1,8 @@
+/**
+ * This route handles the callback from Azure AD after a user has authenticated.
+ * It exchanges the authorization code for a session and redirects the user to the next page.
+ * If the exchange fails, it redirects to an error page.
+ */
 import { createClient } from "@/lib/supabase/server";
 import { NextResponse, type NextRequest } from "next/server";
 
