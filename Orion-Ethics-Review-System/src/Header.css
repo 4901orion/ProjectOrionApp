@@ -1,0 +1,124 @@
+/* Main Header Container */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #E71C31; /* Dark blue background */
+  padding: 12px 24px;
+  color: white;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Optional: subtle divider */
+}
+
+/* --- Left Side --- */
+.brand-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Styling for your custom logo image */
+.logo-img {
+  width: 44px;
+  height: 44px;
+  border-radius: 8px; /* Rounds the corners if your image is a square */
+  object-fit: contain; /* Ensures the logo doesn't stretch */
+}
+
+.brand-text h1 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.brand-text p {
+  margin: 4px 0 0 0;
+  font-size: 13px;
+  color: #9cb3cf; /* Light blue/grey text */
+  line-height: 1.2;
+}
+
+/* --- Right Side --- */
+.user-section {
+  display: flex;
+  align-items: center;
+  gap: 24px; /* Spacing between message icon and profile */
+}
+
+/* Message Icon */
+.message-icon {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background-color: #E71C31; /* Lighter dark blue circle */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #e2e8f0;
+  transition: background-color 0.2s ease;
+}
+
+.message-icon:hover {
+  background-color: #e82e41;
+}
+
+.badge {
+  position: absolute;
+  top: -4px;
+  right: -4px;
+  background-color: #ea5252; /* Red */
+  color: white;
+  font-size: 11px;
+  font-weight: 700;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #E71C31; /* Matches header background to create a cutout look */
+}
+
+/* User Profile */
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 42px;
+  height: 42px;
+  background-color: grey; 
+  color: #E71C31;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+.user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.user-details .name {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #ffffff;
+}
+
+.user-details .role {
+  font-size: 13px;
+  color: #9cb3cf;
+  line-height: 1.2;
+  margin-top: 2px;
+}

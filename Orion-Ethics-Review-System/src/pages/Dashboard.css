@@ -1,0 +1,68 @@
+/* Page Background */
+.dashboard-container {
+  background-color: #f8fafc; 
+  padding: 32px;
+}
+
+/* Stat Cards */
+.stat-card {
+  border-radius: 10px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.08)!important;
+}
+
+.stat-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.stat-value {
+  font-size: 2rem;
+  color: #0f172a; /* Very dark blue */
+}
+
+.stat-details {
+  font-size: 0.85rem;
+}
+
+.text-warning-dark {
+  color: #b45309; /* Dark orange/brown for the warning text */
+}
+
+/* Info Banner */
+.info-banner {
+  background-color: #eff6ff; /* Light blue */
+  border: 1px solid #bfdbfe;
+  color: #1e3a8a;
+  font-size: 0.95rem;
+}
+
+/* Table Customization */
+.custom-table th {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 1rem 1.5rem;
+  border-bottom-width: 1px;
+  font-weight: 700;
+}
+
+.custom-table td {
+  padding: 1rem 1.5rem;
+  color: #334155;
+}
+
+/* Custom Button */
+.decide-btn {
+  background-color: #1e293b; /* Dark navy/black from screenshot */
+  border-color: #1e293b;
+  font-weight: 500;
+}
+
+.decide-btn:hover {
+  background-color: #0f172a;
+  border-color: #0f172a;
+}
