@@ -6,6 +6,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 
+import { Button } from "@/components/ui/button";
+
 export default function Page() {
   return (
     <div className="flex min-h-svh w-full items-center justify-center p-6 md:p-10">
@@ -23,6 +25,12 @@ export default function Page() {
                 You&apos;ve successfully signed up. Please check your email to
                 confirm your account before signing in.
               </p>
+            </CardContent>
+
+            <CardContent className="flex flex-col gap-2">
+              <Button className="w-full" asChild>
+                <a href="/auth/sign-in">Go to Sign In </a>
+              </Button>
             </CardContent>
           </Card>
         </div>

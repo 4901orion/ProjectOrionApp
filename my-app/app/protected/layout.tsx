@@ -1,7 +1,5 @@
-import { DeployButton } from "@/components/deploy-button";
 import { EnvVarWarning } from "@/components/env-var-warning";
 import { AuthButton } from "@/components/auth-button";
-import { ThemeSwitcher } from "@/components/theme-switcher";
 import { hasEnvVars } from "@/lib/utils";
 import Link from "next/link";
 import { Suspense } from "react";
@@ -21,7 +19,6 @@ export default function ProtectedLayout({
               <Link href={"/"}>Orion - Protected Page</Link>
             </div>
             <div className="flex items-center gap-2">
-              <DeployButton />
               {!hasEnvVars ? (
                 <EnvVarWarning />
               ) : (
@@ -40,7 +37,6 @@ export default function ProtectedLayout({
           <p>
             Project Orion
           </p>
-          <ThemeSwitcher />
         </footer>
       </div>
     </main>

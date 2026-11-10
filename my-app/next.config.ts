@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
+  poweredByHeader: false,
   // Nextly does not support Cache Components yet.
   cacheComponents: false,
   serverExternalPackages: [
