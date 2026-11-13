@@ -7,7 +7,7 @@ const FileUpload = ({ userId }: { userId: string }) => {
   const props = useSupabaseUpload({
     bucketName: 'FileUploads',
     path: userId,
-    allowedMimeTypes: ['image/*'],
+    allowedMimeTypes: ['application/pdf'],
     maxFiles: 2,
     maxFileSize: 1000 * 1000 * 10, // 10MB,
   })

@@ -1,5 +1,6 @@
 "use client";
 
+import "@nextlyhq/plugin-form-builder/admin"
 import "@nextlyhq/admin/style.css";
 import { RootLayout, QueryProvider, ErrorBoundary } from "@nextlyhq/admin";
 
