@@ -1,5 +1,8 @@
 "use client";
 
+// Registers the form builder's drag-and-drop editor and submissions views.
+// Without this side-effect import the admin falls back to a raw JSON editor.
+import "@nextlyhq/plugin-form-builder/admin"
 import "@nextlyhq/admin/style.css";
 import { RootLayout, QueryProvider, ErrorBoundary } from "@nextlyhq/admin";
 
