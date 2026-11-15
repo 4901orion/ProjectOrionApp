@@ -22,7 +22,7 @@ export async function GET(request: NextRequest) {
   // Only allow this right after signing in from the emailed link, not with a password.
   const now = Math.floor(Date.now() / 1000);
   const fromEmailLink = (claims.amr ?? []).some(
-    (entry) =>
+    (entry: string | { method: string; timestamp: number }) =>
       typeof entry !== "string" &&
       (entry.method === "otp" || entry.method === "magiclink") &&
       now - entry.timestamp < MAX_AGE_SECONDS,
