@@ -25,6 +25,15 @@ export default function ProtectedPage() {
 
 
       </div>
+
+      <div className="flex justify-center gap-2 items-start">
+        <Button asChild className="mx-4 bg-red-500 opacity-70 hover:bg-red-600 hover:opacity-100">
+          <a href="/protected/apply/subformtest1" target="_blank">
+            Apply Form
+          </a>
+        </Button>
+
+      </div>
     </div>
   );
 }
