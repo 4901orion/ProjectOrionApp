@@ -80,3 +80,137 @@
   width: 100%;
   max-width: none;
 }
+
+.orion-shell {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: #f8fafc;
+}
+
+.orion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.5rem;
+  background: #e71c31;
+  color: #fff;
+}
+
+.orion-brand {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  color: inherit;
+  font-size: 1.125rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.orion-logo {
+  width: 150px;
+  height: auto;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
+  background: #fff;
+}
+
+.orion-user-controls {
+  font-size: 0.875rem;
+}
+
+.orion-body {
+  min-height: 0;
+  display: flex;
+  flex: 1;
+}
+
+.orion-sidebar {
+  width: 260px;
+  flex-shrink: 0;
+  padding-top: 1.5rem;
+  border-right: 1px solid #e2e8f0;
+  background: #fff;
+}
+
+.orion-nav .nav-link {
+  padding: 0.75rem 1.5rem;
+  border-left: 4px solid transparent;
+  border-radius: 0;
+  color: #1e293b;
+  font-weight: 500;
+}
+
+.orion-nav .nav-link:hover,
+.orion-nav .nav-link.active {
+  background: #f0f4f8;
+  color: #1e3a5f;
+}
+
+.orion-nav .nav-link.active {
+  border-left-color: #c49a3a;
+  font-weight: 600;
+}
+
+.orion-content {
+  min-width: 0;
+  flex: 1;
+  overflow: auto;
+}
+
+.orion-stat-card {
+  border-radius: 0.625rem;
+}
+
+.orion-stat-title,
+.orion-table th {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+.orion-stat-value {
+  color: #0f172a;
+  font-size: 2rem;
+}
+
+.orion-info-banner {
+  border: 1px solid #bfdbfe;
+  background: #eff6ff;
+  color: #1e3a8a;
+}
+
+.orion-table th,
+.orion-table td {
+  padding: 1rem 1.5rem;
+}
+
+@media (max-width: 767px) {
+  .orion-header,
+  .orion-body {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .orion-sidebar {
+    width: 100%;
+    padding-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .orion-nav {
+    flex-flow: row nowrap;
+    overflow-x: auto;
+  }
+
+  .orion-nav .nav-link {
+    white-space: nowrap;
+    border-bottom: 4px solid transparent;
+    border-left: 0;
+  }
+
+  .orion-nav .nav-link.active {
+    border-bottom-color: #c49a3a;
+  }
+}
