@@ -66,6 +66,21 @@
   }
 }
 
+/* Keep Bootstrap from changing the existing app links and primary buttons. */
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+[data-slot="button"][data-variant="default"] {
+  background-color: hsl(var(--primary)) !important;
+  color: hsl(var(--primary-foreground)) !important;
+}
+
+[data-slot="button"][data-variant="default"]:hover {
+  background-color: hsl(var(--primary) / 90%) !important;
+}
+
 .survey-form .sd-body.sd-body--static {
   max-width: none;
 }
