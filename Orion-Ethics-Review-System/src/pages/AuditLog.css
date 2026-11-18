@@ -1,0 +1,50 @@
+/* Page Background */
+.audit-container {
+  background-color: #f8fafc;
+  min-height: 100%;
+}
+
+/* Info Banner */
+.info-banner {
+  background-color: #f0f7ff; /* Very light blue */
+  border: 1px solid #e0f2fe;
+  font-size: 0.95rem;
+  color: #475569;
+}
+
+/* Table Customization */
+.custom-table th {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 1rem 1.5rem;
+  border-bottom: 2px solid #e2e8f0;
+  font-weight: 700;
+  background-color: #ffffff;
+}
+
+.custom-table td {
+  padding: 1rem 1.5rem;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #f1f5f9;
+  color: #334155;
+}
+
+/* Remove bottom border from the very last row */
+.custom-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+/* Hover effect for table rows */
+.custom-table tbody tr:hover {
+  background-color: #f8fafc;
+}
+
+/* Specific column styles */
+.timestamp-col {
+  font-family: monospace; /* Often looks good for timestamps, remove if you prefer standard sans-serif */
+  font-size: 0.85rem !important;
+}
+
+.record-col {
+  color: #1e293b;
+}
