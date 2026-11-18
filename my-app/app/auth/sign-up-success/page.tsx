@@ -29,7 +29,7 @@ export default function Page() {
 
             <CardContent className="flex flex-col gap-2">
               <Button className="w-full" asChild>
-                <a href="/auth/sign-in">Go to Sign In </a>
+                <a href="/auth/login">Go to Sign In </a>
               </Button>
             </CardContent>
           </Card>
