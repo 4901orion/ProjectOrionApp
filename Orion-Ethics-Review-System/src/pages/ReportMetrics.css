@@ -1,0 +1,104 @@
+/* Base Container */
+.reports-container {
+  background-color: #f8fafc;
+  min-height: 100%;
+}
+
+/* --- Top Controls --- */
+.custom-select {
+  width: 160px;
+  border-radius: 6px;
+  border-color: #e2e8f0;
+  background-color: white;
+}
+
+.export-btn {
+  border-radius: 6px;
+  border-color: #e2e8f0;
+  background-color: white;
+  color: #334155;
+  font-weight: 500;
+}
+
+.export-btn:hover {
+  background-color: #f1f5f9;
+}
+
+/* --- Stat Cards --- */
+.stat-card {
+  border-radius: 10px;
+}
+
+.stat-title {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+}
+
+/* --- Custom Progress Bars --- */
+.chart-label {
+  font-size: 0.9rem;
+  width: 80px; /* Default width for months */
+}
+
+.chart-value {
+  font-size: 0.95rem;
+  width: 30px; /* Keeps the numbers aligned on the right */
+}
+
+.progress-track {
+  height: 10px;
+  background-color: #f1f5f9; /* Light grey track */
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.5s ease;
+}
+
+/* Specific bar color */
+.bg-navy {
+  background-color: #1e3a8a;
+}
+
+/* --- Table --- */
+.custom-table th {
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  padding: 0.75rem 0.5rem;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+.custom-table td {
+  padding: 1rem 0.5rem;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.custom-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* Days Badges */
+.days-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.alert-bg {
+  background-color: #ffedd5; /* Light orange */
+  color: #9a3412; /* Dark orange text */
+}
+
+.normal-bg {
+  background-color: #f1f5f9; /* Light grey */
+  color: #64748b; /* Dark grey text */
+}

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Applications</title>
+    </head>
+    <body>
+        <!--Navigation bar-->
+        <nav>
+            <ul>
+                <li id="nav_dashboard" class="nav"><a href="Dashboard.html">Dashboard</a></li>
+                <li id="nav_myApplications" class="nav applicant"><a href="myApplications.html">My Applications</a></li>
+                <li id="nav_myReviews" class="nav reviewer"><a href="myReviews.html">My Reviews</a></li>
+                <li id="nav_assignment" class="nav staff"><a href="assignment.html">Triage & Assignment</a></li>
+                <li id="nav_allApplications" class="nav staff"><a href="allApplications.html">All Applications</a></li>
+                <li id="nav_formBuilder" class="nav staff"><a href="formBuilder.html">Form Builder</a></li>
+                <li id="nav_reports" class="nav staff"><a href="reports.html">Reports & Metrics</a></li>
+                <li id="nav_auditLog" class="nav staff"><a href="auditLog.html">Audit Log</a></li>
+            </ul>
+        </nav>
+
+        <h1>New Applications</h1>
+        <!--Form Creation for Application-->
+        <form id="Application_Form">
+            form id="Study_Information">
+                <label for="study_title">Study Title</label><br>
+                <input type="text" id="study_title" name="study_title" required><br>
+
+                <label for="principle_investigator">Principle Investigator</label><br>
+                <input type="text" id="principle_investigator" name="principle_investigator"><br>
+
+                <label for="department">Department</label><br>
+                <input type="text" id="department" name="department"><br>
+
+                <label for="description">Brief description of the study purpose</label><br>
+                <input type="text" id="<description" name="description"><br>
+
+                <label for="start_date">Anticipated start date</label><br>
+                <input type="date" id="start_date" value="2026-10-15" name="start_date" required><br>
+
+            </form>
+            <!--Buttons for Form Control-->
+            <button>Back</button>
+            <button>Save Draft</button>
+            <button>Continue</button>
+
+            <form id="Risk Assessment"></form>
+        </form>
+        
+    </body>
+</html>

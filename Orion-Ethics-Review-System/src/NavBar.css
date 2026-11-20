@@ -1,0 +1,55 @@
+/* Sidebar Wrapper */
+.sidebar-container {
+  width: 260px;
+  flex-shrink: 0;
+  background-color: #ffffff;
+  border-right: 1px solid #e2e8f0;
+  padding-top: 24px;
+  flex-shrink: 0;
+}
+
+/* "REB CHAIR" Heading */
+.sidebar-heading {
+  color: #94a3b8;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0 24px;
+  margin-bottom: 16px;
+}
+
+/* Override Bootstrap Nav Pill Defaults */
+.custom-nav .nav-link {
+  color: #1e293b;
+  border-radius: 0;
+  padding: 12px 24px;
+  font-size: 0.95rem;
+  font-weight: 500;
+  border-left: 4px solid transparent; /* Reserves space for the active border */
+  transition: background-color 0.15s ease-in-out, color 0.15s ease-in-out;
+}
+
+/* Hover State */
+.custom-nav .nav-link:hover {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Active State */
+.custom-nav .nav-link.active {
+  background-color: #f0f4f8; /* Light blue/grey background */
+  color: #1e3a5f; /* Dark navy text */
+  font-weight: 600;
+  border-left: 4px solid #c49a3a; /* Gold accent border (matches your logo) */
+}
+
+/* Icon specific styling */
+.custom-nav .nav-link svg {
+  color: #64748b; /* Grey icons */
+  transition: color 0.15s ease-in-out;
+}
+
+.custom-nav .nav-link.active svg {
+  color: #1e3a5f; /* Dark icons when active */
+}

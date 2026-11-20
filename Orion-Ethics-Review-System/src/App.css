@@ -1,0 +1,24 @@
+/* App.css */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8fafc; /* A light background for the main area */
+}
+
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Fills the whole screen height */
+}
+
+.app-body {
+  display: flex;
+  flex: 1; /* Takes up remaining height below header */
+  align-items: stretch; /* Forces sidebar and content to be the same height */
+  overflow: hidden; /* Prevents double scrollbars */
+}
+
+.app-content {
+  flex: 1; /* Takes up all remaining width next to the sidebar */
+  overflow-y: auto; /* Allows scrolling within the content area */
+}

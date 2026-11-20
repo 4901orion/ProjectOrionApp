@@ -82,7 +82,11 @@ export async function updateSession(request: NextRequest) {
     {
       mfaPath = "/auth/login";
     }
-    else if ( (verifiedUser.factors ?? []).some((factor) => factor.status === "verified"))
+    else if (
+      (verifiedUser.factors ?? []).some(
+        (factor: { status: string }) => factor.status === "verified",
+      )
+    )
       {
       mfaPath = "/auth/mfa";
     } 

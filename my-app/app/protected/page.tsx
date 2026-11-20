@@ -1,11 +1,27 @@
+import { createClient } from "@/lib/supabase/server";
 import { redirect } from "next/navigation";
 
-import { createClient } from "@/lib/supabase/server";
-import { InfoIcon } from "lucide-react";
-import { Suspense } from "react";
-import { Button } from "@/components/ui/button";
+const stats = [
+  { title: "Awaiting final decision", value: "2", details: "Stuff..." },
+  { title: "Awaiting final decision", value: "2", details: "Stuff..." },
+];
 
-async function UserDetails() {
+const reviews = [
+  {
+    protocol: "Stuff",
+    pi: "Dr. A. Chen",
+    path: "Expedited",
+    recommendation: "Revision Required",
+  },
+  {
+    protocol: "Stuff",
+    pi: "Dr. A. Chen",
+    path: "Expedited",
+    recommendation: "Revision Required",
+  },
+];
+
+export default async function ProtectedPage() {
   const supabase = await createClient();
   const { data, error } = await supabase.auth.getClaims();
 
@@ -14,40 +30,77 @@ async function UserDetails() {
   }
 
   return (
-    <>
-      <h1 className="font-bold text-2xl mb-4">
-        Orion Dashboard. Logged In= {data.claims.email}
-      </h1>
+    <div className="orion-dashboard p-4">
+      <div className="mb-4">
+        <h1 className="h2 fw-bold mb-1">Dashboard</h1>
+        <p className="text-muted mb-0">
+          Review recommendations, resolve disagreements, and issue final decisions.
+        </p>
+      </div>
 
-      <h2 className="font-bold text-2xl mb-4">Your user details</h2>
-      <pre className="text-xs font-mono p-3 rounded border max-h-32 overflow-auto">
-        {JSON.stringify(data.claims, null, 2)}
-      </pre>
-    </>
-  );
-}
+      <div className="row g-3 mb-4">
+        {stats.map((stat, index) => (
+          <div className="col-12 col-md-6 col-xl-3" key={index}>
+            <div className="card h-100 shadow-sm border-0 orion-stat-card">
+              <div className="card-body">
+                <h2 className="orion-stat-title text-uppercase text-muted fw-bold">
+                  {stat.title}
+                </h2>
+                <p className="orion-stat-value fw-bold mb-2">{stat.value}</p>
+                <p className="text-warning-emphasis mb-0">{stat.details}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
 
-export default async function ProtectedPage() {
-  return (
-    <div className="flex-1 w-full flex flex-col gap-12">
-      <div className="w-full">
-        <div className="bg-accent text-sm p-3 px-5 rounded-md text-foreground flex gap-3 items-center">
-          <InfoIcon size="16" strokeWidth={2} />
-          This is a protected page that you can only see as an authenticated
-          user
+      <div className="orion-info-banner d-flex align-items-center p-3 mb-4 rounded">
+        <span className="me-3" aria-hidden="true">
+          🚩
+        </span>
+        <span>
+          Reviewer flags let reviewers raise a question directly with you—no email or
+          Teams message required.
+        </span>
+      </div>
+
+      <div className="card shadow-sm border-0">
+        <h2 className="h5 fw-bold p-4 mb-0 border-bottom">
+          Reviews ready for decision
+        </h2>
+        <div className="table-responsive">
+          <table className="table table-hover align-middle mb-0 orion-table">
+            <thead>
+              <tr>
+                <th>Protocol</th>
+                <th>PI</th>
+                <th>Path</th>
+                <th>Recommendation</th>
+                <th>
+                  <span className="visually-hidden">Action</span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {reviews.map((review, index) => (
+                <tr key={index}>
+                  <td className="fw-bold">{review.protocol}</td>
+                  <td>{review.pi}</td>
+                  <td>{review.path}</td>
+                  <td className="text-muted">{review.recommendation}</td>
+                  <td className="text-end">
+                    <button
+                      type="button"
+                      className="btn btn-dark btn-sm rounded-pill px-4"
+                    >
+                      Decide
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
-      </div>
-      <div className="flex flex-col gap-2 items-start">
-        <Suspense fallback={<p>Loading user details...</p>}>
-          <UserDetails />
-        </Suspense>
-      </div>
-           <div>
-        
-        {/*Testing- navigation to new page */}
-        <Button asChild>
-          <a href="/protected/page2">next (testing navigation button)</a>
-        </Button>
       </div>
     </div>
   );

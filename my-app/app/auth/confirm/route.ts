@@ -1,7 +1,12 @@
 import { createClient } from "@/lib/supabase/server";
-import { type EmailOtpType } from "@supabase/supabase-js";
 import { redirect } from "next/navigation";
 import { type NextRequest } from "next/server";
+
+type SupabaseClient = Awaited<ReturnType<typeof createClient>>;
+type EmailOtpType = Extract<
+  Parameters<SupabaseClient["auth"]["verifyOtp"]>[0],
+  { token_hash: string }
+>["type"];
 
 export async function GET(request: NextRequest) {
   const { searchParams } = new URL(request.url);
